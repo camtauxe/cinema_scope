@@ -13,8 +13,10 @@ case $TRAVIS_OS_NAME in
         ;;
     osx)
         brew install qt5
-        travis_wait git clone http://code.qt.io/cgit/installer-framework/installer-framework.git ifw
+        wget "http://download.qt.io/official_releases/qt-installer-framework/3.0.6/qt-installer-framework-opensource-src-3.0.6.tar.gz" -O qt_ifw_src.tar.gz
+        mkdir ifw
         cd ifw
+        tar -xvf ../qt_ifw_src.tar.gz
         qmake && make
         cd ..
         ;;
