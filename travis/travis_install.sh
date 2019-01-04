@@ -13,11 +13,13 @@ case $TRAVIS_OS_NAME in
         export PATH="$HOME/Qt/Tools/QtInstallerFramework/3.0/bin:$PATH"
         ;;
     osx)
+        set -x
         brew install qt5
         travis_wait wget http://download.qt.io/official_releases/online_installers/qt-unified-mac-x64-online.dmg -q -O qt_installer.dmg
         travis_wait ./qt_installer.dmg -platform minimal --script $TRAVIS_BUILD_DIR/travis/navigate_qt_installer_unix.qs
         # Add installer framework to path
         export PATH="$HOME/Qt/QtIFW-3.0/bin:$PATH"
+        set -x
         ;;
     windows)
         # Download and run qt installer
