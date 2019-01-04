@@ -12,12 +12,9 @@ case $TRAVIS_OS_NAME in
         export PATH="$HOME/Qt/QtIFW-3.0.6/bin:$PATH"
         ;;
     osx)
-        # brew install qt5
-        curl -O https://raw.githubusercontent.com/Homebrew/homebrew-core/13d52537d1e0e5f913de46390123436d220035f6/Formula/qt.rb
-        brew install ./qt.rb
+        brew install qt5
         brew tap jmuelbert/homebrew-qtifw
         brew install qt-ifw
-        export IFWBIN="$HOME/Qt/QtIFW-3.0.6/bin"
         ;;
     windows)
         # Download and run qt installer
