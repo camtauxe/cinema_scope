@@ -9,11 +9,11 @@ case $TRAVIS_OS_NAME in
         chmod +x qt_ifw_installer.run
         travis_wait ./qt_ifw_installer.run -platform minimal --script $TRAVIS_BUILD_DIR/travis/navigate_qt_ifw_installer.qs
         # Add installer framework to path
-        export PATH="$HOME/Qt/Tools/QtIFW-3.0.6/bin:$PATH"
+        export PATH="$HOME/Qt/QtIFW-3.0.6/bin:$PATH"
         ;;
     osx)
-        travis_wait brew install qt5
-        travis_wait brew install qt-ifw
+        # travis_wait brew install qt5
+        # travis_wait brew install qt-ifw
         ;;
     windows)
         # Download and run qt installer
