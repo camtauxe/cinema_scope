@@ -16,7 +16,7 @@ case $TRAVIS_OS_NAME in
     osx)
         cp -rf $TRAVIS_BUILD_DIR/build/release/cinema_scope.app $TRAVIS_BUILD_DIR/installer/packages/cinemascope/data
         macdeployqt $TRAVIS_BUILD_DIR/installer/packages/cinemascope/data/cinema_scope.app
-        binarycreator -t $IFWBIN/installerbase -c $TRAVIS_BUILD_DIR/installer/config/config.xml -p $TRAVIS_BUILD_DIR/installer/packages cinema_scope_installer.dmg
+        binarycreator -c $TRAVIS_BUILD_DIR/installer/config/config.xml -p $TRAVIS_BUILD_DIR/installer/packages cinema_scope_installer.dmg
         if [ -e cinema_scope_installer.dmg ]
         then
             echo "Installer built!"
