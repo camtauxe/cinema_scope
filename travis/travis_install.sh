@@ -12,8 +12,8 @@ case $TRAVIS_OS_NAME in
         export PATH="$HOME/Qt/QtIFW-3.0.6/bin:$PATH"
         ;;
     osx)
-        # travis_wait brew install qt5
-        # travis_wait brew install qt-ifw
+        brew install qt5
+        brew install qt-ifw
         ;;
     windows)
         # Download and run qt installer
