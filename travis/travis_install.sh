@@ -13,6 +13,7 @@ case $TRAVIS_OS_NAME in
         ;;
     osx)
         brew install qt5
+        brew tap jmuelbert/homebrew-qtifw
         brew install qt-ifw
         ;;
     windows)
