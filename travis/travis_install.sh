@@ -3,23 +3,17 @@ set -e
 
 case $TRAVIS_OS_NAME in
     linux)
-        # Download and run qt installer
+        # Download and run qt ifw installer
         # (Thanks https://github.com/sgsaenger/vipster for example!)
-        travis_wait wget http://download.qt.io/official_releases/online_installers/qt-unified-linux-x64-online.run -q -O qt_installer.run
-        chmod +x qt_installer.run
-        travis_wait ./qt_installer.run -platform minimal --script $TRAVIS_BUILD_DIR/travis/navigate_qt_installer_unix.qs
+        travis_wait wget https://download.qt.io/official_releases/qt-installer-framework/3.0.6/QtInstallerFramework-linux-x64.run -q -O qt_ifw_installer.run
+        chmod +x qt_ifw_installer.run
+        travis_wait ./qt_ifw_installer.run -platform minimal --script $TRAVIS_BUILD_DIR/travis/navigate_qt_ifw_installer.qs
         # Add installer framework to path
-        ls $HOME/Qt
-        export PATH="$HOME/Qt/Tools/QtInstallerFramework/3.0/bin:$PATH"
+        export PATH="$HOME/Qt/Tools/QtIFW-3.0.6/bin:$PATH"
         ;;
     osx)
-        set -x
-        brew install qt5
-        travis_wait wget http://download.qt.io/official_releases/online_installers/qt-unified-mac-x64-online.dmg -q -O qt_installer.dmg
-        travis_wait ./qt_installer.dmg -platform minimal --script $TRAVIS_BUILD_DIR/travis/navigate_qt_installer_unix.qs
-        # Add installer framework to path
-        export PATH="$HOME/Qt/QtIFW-3.0/bin:$PATH"
-        set -x
+        travis_wait brew install qt5
+        travis_wait brew install qt-ifw
         ;;
     windows)
         # Download and run qt installer
