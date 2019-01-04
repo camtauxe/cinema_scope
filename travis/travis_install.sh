@@ -13,9 +13,10 @@ case $TRAVIS_OS_NAME in
         ;;
     osx)
         brew install qt5
-        brew tap jmuelbert/homebrew-qtifw
-        brew install qt-ifw
-        export IFWBIN="$HOME/Qt/QtIFW-3.0.6/bin"
+        git clone http://code.qt.io/cgit/installer-framework/installer-framework.git ifw
+        cd ifw
+        qmake && make
+        cd ..
         ;;
     windows)
         # Download and run qt installer
