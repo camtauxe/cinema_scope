@@ -15,6 +15,7 @@ case $TRAVIS_OS_NAME in
         brew install qt5
         brew tap jmuelbert/homebrew-qtifw
         brew install qt-ifw
+        export IFWBIN="$HOME/Qt/QtIFW-3.0.6/bin"
         ;;
     windows)
         # Download and run qt installer
